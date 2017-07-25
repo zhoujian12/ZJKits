@@ -13,6 +13,7 @@
 		2362CDBB1EC6FDD600E2780D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2362CDB91EC6FDD600E2780D /* Main.storyboard */; };
 		2362CDBD1EC6FDD600E2780D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2362CDBC1EC6FDD600E2780D /* Assets.xcassets */; };
 		2362CDC01EC6FDD600E2780D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2362CDBE1EC6FDD600E2780D /* LaunchScreen.storyboard */; };
+		239C07801F274F0C00948FB8 /* UIView+position.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C077F1F274F0C00948FB8 /* UIView+position.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		2362CDC11EC6FDD600E2780D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		239C07761F273A6D00948FB8 /* ZJCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJCocoa.h; sourceTree = "<group>"; };
 		239C077C1F273B2E00948FB8 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		239C077E1F274F0C00948FB8 /* UIView+position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+position.h"; sourceTree = "<group>"; };
+		239C077F1F274F0C00948FB8 /* UIView+position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+position.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +90,18 @@
 			children = (
 				239C07761F273A6D00948FB8 /* ZJCocoa.h */,
 				239C077C1F273B2E00948FB8 /* AppConfig.h */,
+				239C077D1F274E1500948FB8 /* PositionExtend */,
 			);
 			name = ZJCocoa;
+			sourceTree = "<group>";
+		};
+		239C077D1F274E1500948FB8 /* PositionExtend */ = {
+			isa = PBXGroup;
+			children = (
+				239C077E1F274F0C00948FB8 /* UIView+position.h */,
+				239C077F1F274F0C00948FB8 /* UIView+position.m */,
+			);
+			name = PositionExtend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2362CDB81EC6FDD600E2780D /* ViewController.m in Sources */,
+				239C07801F274F0C00948FB8 /* UIView+position.m in Sources */,
 				2362CDB51EC6FDD500E2780D /* AppDelegate.m in Sources */,
 				2362CDB21EC6FDD500E2780D /* main.m in Sources */,
 			);
