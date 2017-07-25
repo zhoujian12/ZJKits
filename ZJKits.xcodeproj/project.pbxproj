@@ -26,6 +26,8 @@
 		2362CDBC1EC6FDD600E2780D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2362CDBF1EC6FDD600E2780D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2362CDC11EC6FDD600E2780D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		239C07761F273A6D00948FB8 /* ZJCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJCocoa.h; sourceTree = "<group>"; };
+		239C077C1F273B2E00948FB8 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		2362CDA41EC6FDD500E2780D = {
 			isa = PBXGroup;
 			children = (
+				239C07741F273A1400948FB8 /* ZJCocoa */,
 				2362CDAF1EC6FDD500E2780D /* ZJKits */,
 				2362CDAE1EC6FDD500E2780D /* Products */,
 			);
@@ -77,6 +80,15 @@
 				2362CDB11EC6FDD500E2780D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		239C07741F273A1400948FB8 /* ZJCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				239C07761F273A6D00948FB8 /* ZJCocoa.h */,
+				239C077C1F273B2E00948FB8 /* AppConfig.h */,
+			);
+			name = ZJCocoa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +324,7 @@
 				2362CDC61EC6FDD600E2780D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
