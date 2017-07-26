@@ -13,6 +13,10 @@
 		2362CDBB1EC6FDD600E2780D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2362CDB91EC6FDD600E2780D /* Main.storyboard */; };
 		2362CDBD1EC6FDD600E2780D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2362CDBC1EC6FDD600E2780D /* Assets.xcassets */; };
 		2362CDC01EC6FDD600E2780D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2362CDBE1EC6FDD600E2780D /* LaunchScreen.storyboard */; };
+		237655A71F284438007FCD41 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 237655A61F284438007FCD41 /* NSArray+Log.m */; };
+		237655A91F286B01007FCD41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 237655A81F286B01007FCD41 /* data.json */; };
+		237655AF1F289FC1007FCD41 /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 237655AE1F289FC1007FCD41 /* NSDictionary+Log.m */; };
+		237655B21F289FD7007FCD41 /* NSString+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 237655B11F289FD7007FCD41 /* NSString+Log.m */; };
 		239C07801F274F0C00948FB8 /* UIView+position.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C077F1F274F0C00948FB8 /* UIView+position.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,13 @@
 		2362CDBC1EC6FDD600E2780D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2362CDBF1EC6FDD600E2780D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2362CDC11EC6FDD600E2780D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		237655A51F284438007FCD41 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		237655A61F284438007FCD41 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		237655A81F286B01007FCD41 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		237655AD1F289FC1007FCD41 /* NSDictionary+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Log.h"; sourceTree = "<group>"; };
+		237655AE1F289FC1007FCD41 /* NSDictionary+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Log.m"; sourceTree = "<group>"; };
+		237655B01F289FD7007FCD41 /* NSString+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Log.h"; sourceTree = "<group>"; };
+		237655B11F289FD7007FCD41 /* NSString+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Log.m"; sourceTree = "<group>"; };
 		239C07761F273A6D00948FB8 /* ZJCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJCocoa.h; sourceTree = "<group>"; };
 		239C077C1F273B2E00948FB8 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		239C077E1F274F0C00948FB8 /* UIView+position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+position.h"; sourceTree = "<group>"; };
@@ -80,9 +91,23 @@
 		2362CDB01EC6FDD500E2780D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				237655A81F286B01007FCD41 /* data.json */,
 				2362CDB11EC6FDD500E2780D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		237655A41F28434F007FCD41 /* NSLog */ = {
+			isa = PBXGroup;
+			children = (
+				237655A51F284438007FCD41 /* NSArray+Log.h */,
+				237655A61F284438007FCD41 /* NSArray+Log.m */,
+				237655AD1F289FC1007FCD41 /* NSDictionary+Log.h */,
+				237655AE1F289FC1007FCD41 /* NSDictionary+Log.m */,
+				237655B01F289FD7007FCD41 /* NSString+Log.h */,
+				237655B11F289FD7007FCD41 /* NSString+Log.m */,
+			);
+			name = NSLog;
 			sourceTree = "<group>";
 		};
 		239C07741F273A1400948FB8 /* ZJCocoa */ = {
@@ -90,6 +115,7 @@
 			children = (
 				239C07761F273A6D00948FB8 /* ZJCocoa.h */,
 				239C077C1F273B2E00948FB8 /* AppConfig.h */,
+				237655A41F28434F007FCD41 /* NSLog */,
 				239C077D1F274E1500948FB8 /* PositionExtend */,
 			);
 			name = ZJCocoa;
@@ -166,6 +192,7 @@
 				2362CDC01EC6FDD600E2780D /* LaunchScreen.storyboard in Resources */,
 				2362CDBD1EC6FDD600E2780D /* Assets.xcassets in Resources */,
 				2362CDBB1EC6FDD600E2780D /* Main.storyboard in Resources */,
+				237655A91F286B01007FCD41 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +203,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237655A71F284438007FCD41 /* NSArray+Log.m in Sources */,
+				237655AF1F289FC1007FCD41 /* NSDictionary+Log.m in Sources */,
 				2362CDB81EC6FDD600E2780D /* ViewController.m in Sources */,
 				239C07801F274F0C00948FB8 /* UIView+position.m in Sources */,
+				237655B21F289FD7007FCD41 /* NSString+Log.m in Sources */,
 				2362CDB51EC6FDD500E2780D /* AppDelegate.m in Sources */,
 				2362CDB21EC6FDD500E2780D /* main.m in Sources */,
 			);
