@@ -11,7 +11,7 @@
 @interface UserModel : NSObject
 
 @property (nonatomic, copy) NSString *userName;
-@property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *_userId;
 
 
 @end
@@ -23,7 +23,7 @@
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, assign) NSInteger age;
 
-@property (nonatomic, strong) UserModel *user; ///< 模型中嵌套UserModel模型
+@property (nonatomic, strong) UserModel *_user; ///< 模型中嵌套UserModel模型
 @property (nonatomic, strong) NSArray <UserModel *> *arrUsers; ///<模型中嵌套UserModel模型数组
 
 

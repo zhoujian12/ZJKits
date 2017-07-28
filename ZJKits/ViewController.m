@@ -79,10 +79,16 @@
                               
                               };
     
-    TestModel *model = [TestModel zj_initWithDictionary:dicTest];
-    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userId: %@ ",model._id, model._name, model.phone, model.address, @(model.age),model.user.userId,model.user.userId);
+    NSDictionary *dic = @{@"_id":@"id",
+                          @"_name":@"name",
+                          @"_user":@"user",
+                          @"_userId":@"userId"
+                          };
+    
+    TestModel *model = [TestModel zj_initWithDictionary:dicTest optionalAttributesDic:dic];
+    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userId: %@ ",model._id, model._name, model.phone, model.address, @(model.age),model._user. _userId,model._user._userId);
     [model.arrUsers enumerateObjectsUsingBlock:^(UserModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"arrUser----userId:%@", obj.userId);
+        NSLog(@"arrUser----userId:%@", obj._userId);
     }];
     
 }

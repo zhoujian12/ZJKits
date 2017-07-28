@@ -16,7 +16,7 @@ static NSString *const ZJClassType_other   =   @"其它";
 @implementation NSObject (ZJDicModelTransform)
 
 /* 字典转模型 */
-+ (instancetype)zj_initWithDictionary:(NSDictionary *)dic{
++ (instancetype)zj_initWithDictionary:(NSDictionary *)dic  optionalAttributesDic:(NSDictionary<NSString *, NSString *> *)optionalAttributes{
     id myObj = [[self alloc]init];
     
     unsigned int propertyCount;
@@ -33,11 +33,14 @@ static NSString *const ZJClassType_other   =   @"其它";
         NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
         
         //字典中的属性名
+        /* 1.使用zj_propertykeyReplacedWithValue类方法进行替换
+           2.optionalAttributes 字典属性进行替换
+         */
         NSString *newPropertyName = propertyName;;
         
-        if ([self respondsToSelector:@selector(zj_propertykeyReplacedWithValue)]) {
+        if ([self respondsToSelector:@selector(zj_propertykeyReplacedWithValue)] || [optionalAttributes count]) {
             
-            NSDictionary  *newPropertyNameDic = [self zj_propertykeyReplacedWithValue];
+            NSDictionary  *newPropertyNameDic = [optionalAttributes count] ? optionalAttributes : [self zj_propertykeyReplacedWithValue];
                 
             newPropertyName = [newPropertyNameDic objectForKey:propertyName];
             
@@ -67,9 +70,9 @@ static NSString *const ZJClassType_other   =   @"其它";
                     id propertyValueType = [[self zj_objectClassInArray] objectForKey:propertyName];
                     
                     if ([propertyValueType isKindOfClass:[NSString class]]) {
-                        propertyValue = [NSClassFromString(propertyValueType) zj_initWithArray:propertyValue];
+                        propertyValue = [NSClassFromString(propertyValueType) zj_initWithArray:propertyValue optionalAttributesDic:optionalAttributes];
                     }else{
-                        propertyValue = [propertyValueType zj_initWithArray:propertyValue];
+                        propertyValue = [propertyValueType zj_initWithArray:propertyValue optionalAttributesDic:optionalAttributes];
                     }
                     
                     if (propertyValue != nil) {
@@ -91,7 +94,7 @@ static NSString *const ZJClassType_other   =   @"其它";
             }
             else {
                 //自定义类型,循环调用，一直到不是自定义类型
-                propertyValue = [NSClassFromString(propertyClassType) zj_initWithDictionary:propertyValue];
+                propertyValue = [NSClassFromString(propertyClassType) zj_initWithDictionary:propertyValue optionalAttributesDic:optionalAttributes];
                 if (propertyValue != nil) {
                     [myObj setValue:propertyValue forKey:propertyName];
                 }
@@ -118,7 +121,7 @@ static NSString *const ZJClassType_other   =   @"其它";
         }
         else {
             //其他类型
-            NSLog(@"--------propertyType 为其他类型");
+            NSLog(@"--------propertyType 为其他类型 ,请联系 周健 QQ：931234635");
         }
     }
     
@@ -127,16 +130,16 @@ static NSString *const ZJClassType_other   =   @"其它";
     return myObj;
 }
 
-+ (instancetype)zj_initWithArray:(NSArray *)arr{
++ (instancetype)zj_initWithArray:(NSArray *)arr optionalAttributesDic:(NSDictionary<NSString *, NSString *> *)optionalAttributes{
     NSAssert([arr isKindOfClass:[NSArray class]], @"不是数组");
     
     NSMutableArray *arrmodels = [NSMutableArray array];
     
     [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[NSArray class]]) {
-            [arrmodels addObject:[self zj_initWithArray:obj]];
+            [arrmodels addObject:[self zj_initWithArray:obj optionalAttributesDic:optionalAttributes]];
         }else{
-            id model = [self zj_initWithDictionary:obj];
+            id model = [self zj_initWithDictionary:obj optionalAttributesDic:optionalAttributes];
             [arrmodels addObject:model];
         }
     }];

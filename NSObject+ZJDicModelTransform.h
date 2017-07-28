@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol ZJDicModelTransformProtocol <NSObject>
 
@@ -17,20 +17,29 @@
  *
  *  @return key --- 属性名,  value --- 数组中存储的类型
  */
-+ (NSDictionary *)zj_objectClassInArray;
++ (NSDictionary *_Nullable)zj_objectClassInArray;
 
 /**
  *  替换一些字段
  *
  *  @return key -- 模型中的字段， value --- 字典中的字段
  */
-+ (NSDictionary *)zj_propertykeyReplacedWithValue;
++ (NSDictionary *_Nullable)zj_propertykeyReplacedWithValue;
 
 @end
 
 @interface NSObject (ZJDicModelTransform)<ZJDicModelTransformProtocol>
 
 /* 字典转模型 */
-+ (instancetype)zj_initWithDictionary:(NSDictionary *)dic;
++ (instancetype)zj_initWithDictionary:(NSDictionary *)dic  optionalAttributesDic:(NSDictionary<NSString *, NSString *> *)optionalAttributes;
+
+/**
+ *  @abstract 配置属性对应字典中的key
+ *  @discusstion 如属性名为userID,对应字典中的key为user_id,则需通过此方法修改
+ *
+ *  @return NSDictionary<属性名, modelDictionary中的key> *
+ */
+//@property (nonatomic, strong, nullable) NSDictionary<NSString *, NSString *> *optionalAttributes;
 
 @end
+NS_ASSUME_NONNULL_END

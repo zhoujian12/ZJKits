@@ -17,7 +17,9 @@
 
 +(NSDictionary *)zj_propertykeyReplacedWithValue{
     return @{@"_id":@"id",
-             @"_name":@"name"
+             @"_name":@"name",
+             @"_user":@"user",
+             @"_userId":@"userId"
              };
 }
 
@@ -25,6 +27,10 @@
 
 @implementation UserModel
 
-
++(NSDictionary *)zj_propertykeyReplacedWithValue{
+    return @{
+             @"_userId":@"userId"
+             };
+}
 
 @end
