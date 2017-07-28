@@ -17,6 +17,8 @@
 		237655A91F286B01007FCD41 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 237655A81F286B01007FCD41 /* data.json */; };
 		237655AF1F289FC1007FCD41 /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 237655AE1F289FC1007FCD41 /* NSDictionary+Log.m */; };
 		237655B21F289FD7007FCD41 /* NSString+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 237655B11F289FD7007FCD41 /* NSString+Log.m */; };
+		23778F511F29DB0D00702D04 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23778F501F29DB0D00702D04 /* TestModel.m */; };
+		23778F551F29DB9900702D04 /* NSObject+ZJDicModelTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 23778F541F29DB9900702D04 /* NSObject+ZJDicModelTransform.m */; };
 		239C07801F274F0C00948FB8 /* UIView+position.m in Sources */ = {isa = PBXBuildFile; fileRef = 239C077F1F274F0C00948FB8 /* UIView+position.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,10 @@
 		237655AE1F289FC1007FCD41 /* NSDictionary+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Log.m"; sourceTree = "<group>"; };
 		237655B01F289FD7007FCD41 /* NSString+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Log.h"; sourceTree = "<group>"; };
 		237655B11F289FD7007FCD41 /* NSString+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Log.m"; sourceTree = "<group>"; };
+		23778F4F1F29DB0D00702D04 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		23778F501F29DB0D00702D04 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		23778F531F29DB9900702D04 /* NSObject+ZJDicModelTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZJDicModelTransform.h"; sourceTree = "<group>"; };
+		23778F541F29DB9900702D04 /* NSObject+ZJDicModelTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZJDicModelTransform.m"; sourceTree = "<group>"; };
 		239C07761F273A6D00948FB8 /* ZJCocoa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJCocoa.h; sourceTree = "<group>"; };
 		239C077C1F273B2E00948FB8 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
 		239C077E1F274F0C00948FB8 /* UIView+position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+position.h"; sourceTree = "<group>"; };
@@ -75,6 +81,7 @@
 		2362CDAF1EC6FDD500E2780D /* ZJKits */ = {
 			isa = PBXGroup;
 			children = (
+				23778F4E1F29DAE700702D04 /* Model */,
 				2362CDB31EC6FDD500E2780D /* AppDelegate.h */,
 				2362CDB41EC6FDD500E2780D /* AppDelegate.m */,
 				2362CDB61EC6FDD500E2780D /* ViewController.h */,
@@ -110,11 +117,30 @@
 			name = NSLog;
 			sourceTree = "<group>";
 		};
+		23778F4E1F29DAE700702D04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23778F4F1F29DB0D00702D04 /* TestModel.h */,
+				23778F501F29DB0D00702D04 /* TestModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		23778F521F29DB4F00702D04 /* DictionaryToModel */ = {
+			isa = PBXGroup;
+			children = (
+				23778F531F29DB9900702D04 /* NSObject+ZJDicModelTransform.h */,
+				23778F541F29DB9900702D04 /* NSObject+ZJDicModelTransform.m */,
+			);
+			name = DictionaryToModel;
+			sourceTree = "<group>";
+		};
 		239C07741F273A1400948FB8 /* ZJCocoa */ = {
 			isa = PBXGroup;
 			children = (
 				239C07761F273A6D00948FB8 /* ZJCocoa.h */,
 				239C077C1F273B2E00948FB8 /* AppConfig.h */,
+				23778F521F29DB4F00702D04 /* DictionaryToModel */,
 				237655A41F28434F007FCD41 /* NSLog */,
 				239C077D1F274E1500948FB8 /* PositionExtend */,
 			);
@@ -210,6 +236,8 @@
 				237655B21F289FD7007FCD41 /* NSString+Log.m in Sources */,
 				2362CDB51EC6FDD500E2780D /* AppDelegate.m in Sources */,
 				2362CDB21EC6FDD500E2780D /* main.m in Sources */,
+				23778F551F29DB9900702D04 /* NSObject+ZJDicModelTransform.m in Sources */,
+				23778F511F29DB0D00702D04 /* TestModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

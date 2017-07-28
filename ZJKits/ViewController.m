@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "ZJCocoa.h"
 #import "NSArray+Log.h"
+#import "NSObject+ZJDicModelTransform.h"
+#import "TestModel.h"
 
 @interface ViewController ()
 
@@ -19,50 +21,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = kRedColor;
-    NSMutableArray *dataArr = nil;
-    
-    NSLog(@"dataArr : %@",dataArr);
-    
-    NSString *str = [self htmlWithUrlString:@"https://www.budejie.com"];
-    NSLog(@"str : %@",str);
+    [self setUpView];
+}
 
+- (void)setUpView{
+    self.view.backgroundColor = kRedColor;
+    
+    //网络请求
+//    [self startNetWork];
+    
+    //字典转模型
+    [self jsonToModelMethod];
+}
+
+- (void)startNetWork{
+    [self htmlWithUrlString:@"https://www.budejie.com"];
 }
 
 
-- (NSString *)htmlWithUrlString:(NSString *)urlString {
-    
-    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
+- (void)htmlWithUrlString:(NSString *)urlString {
+    //http://blog.csdn.net/olive1993/article/details/52036755 [@"!*'();:@&=+ $,/?%#[]" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];  //编码
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     NSURL *url = [NSURL URLWithString:urlString];
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
     NSError *error = nil;
     
     if (error) {
         NSLog(@"%@",error.localizedDescription);
-        return nil;
+        return;
     }
     
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:&error];
-//    NSURLSessionDataTask *sessionTask = [NSURLSession dataTaskWithRequest: completionHandler:];
-    NSString *backStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    /**
-                                   第一次过滤正则
-                                   
-                                   截取取内容符合 <div id="article_list" class="list">...</div> 格式的字符串
-                                   */
-//    NSString *firstPattern = [NSString stringWithFormat:@"<a  href=\"/video/\">(.*?)</a>"];
-    NSString *firstPattern = [NSString stringWithFormat:@"<a  href=(.*?)</a>"];
+    NSURLSession *urlSession = [NSURLSession sharedSession];
+    NSURLSessionDataTask *sessionTask = [urlSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSString *backStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        /**第一次过滤正则，截取取内容符合 <div id="article_list" class="list">...</div> 格式的字符串*/
+        //    NSString *firstPattern = [NSString stringWithFormat:@"<a  href=\"/video/\">(.*?)</a>"];
+        NSString *firstPattern = [NSString stringWithFormat:@"<a  href=(.*?)</a>"];
+        NSString *content = [backStr firstMatchWithPattern:firstPattern];
+        NSLog(@"str : %@",content);
 
+    }];
     
-    NSString *content = [backStr firstMatchWithPattern:firstPattern];
-    
-    return content;
+    [sessionTask resume];
 }
 
-
-
+- (void)jsonToModelMethod{
+    self.title = @"字典转模型";
+    
+    NSDictionary *dicTest = @{
+                              @"id":@"121",
+                              @"name":@"张三",
+                              @"phone":@110,
+                              @"age":@"10",
+                              @"user":@{@"userId":@"2"},
+                              @"arrUsers":@[@{@"userId":@"2"},@{@"userId":@"2"},@{@"userId":@"2"}]
+                              
+                              };
+    
+    TestModel *model = [TestModel zj_initWithDictionary:dicTest];
+    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userId: %@ ",model._id, model._name, model.phone, model.address, @(model.age),model.user.userId,model.user.userId);
+    [model.arrUsers enumerateObjectsUsingBlock:^(UserModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"arrUser----userId:%@", obj.userId);
+    }];
+    
+}
 @end

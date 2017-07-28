@@ -10,5 +10,4 @@
 
 @interface NSArray (Log)
 
-
 @end

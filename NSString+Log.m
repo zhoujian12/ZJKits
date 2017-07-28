@@ -21,17 +21,14 @@
     
     NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
     
-    
     NSPropertyListFormat format = NSPropertyListOpenStepFormat;
     
     NSString *returnStr = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListImmutable format:&format error:nil];
     
-    
-    
     return [returnStr stringByReplacingOccurrencesOfString:@"\\r\\n" withString:@"\n"];
 }
 
-/** 查找并返回第一个匹配的文本内容 */
+/* 查找并返回第一个匹配的文本内容 */
 - (NSString *)firstMatchWithPattern:(NSString *)pattern
 {
     NSError *error = nil;
