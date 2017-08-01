@@ -7,12 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 @interface UserModel : NSObject
 
-@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *_userName;
 @property (nonatomic, copy) NSString *_userId;
 
+
+@end
+
+
+@interface UserModel2 : NSObject
+
+@property (nonatomic, copy) NSString *_userName;
+@property (nonatomic, copy) NSString *userAge;
+@property (nonatomic, copy) NSString *userId;
 
 @end
 
@@ -24,8 +34,14 @@
 @property (nonatomic, assign) NSInteger age;
 
 @property (nonatomic, strong) UserModel *_user; ///< 模型中嵌套UserModel模型
+@property (nonatomic, strong) UserModel2 *_user2;
 @property (nonatomic, strong) NSArray <UserModel *> *arrUsers; ///<模型中嵌套UserModel模型数组
+@property (nonatomic, strong) NSArray <UserModel2 *> *arrUsers2; ///<模型中嵌套UserModel模型数组
 
-
+/*
+ dic 为需要解析的json字典
+ */
++ (instancetype)initManagerWithDic:(NSDictionary *)dic;
 @end
 
+NS_ASSUME_NONNULL_END

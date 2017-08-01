@@ -74,21 +74,20 @@
                               @"name":@"张三",
                               @"phone":@110,
                               @"age":@"10",
-                              @"user":@{@"userId":@"2"},
-                              @"arrUsers":@[@{@"userId":@"2"},@{@"userId":@"2"},@{@"userId":@"2"}]
-                              
+                              @"user":@{@"userId":@"2",@"userName":@"zhoujian"},
+                              @"arrUsers":@[@{@"userId":@"2"},@{@"userId":@"3"},@{@"userId":@"4"}],
+                              @"arrUsers2":@[@{@"userName":@"zhangSan"},@{@"userName":@"26"},@{@"userName":@"666"}]
                               };
     
-    NSDictionary *dic = @{@"_id":@"id",
-                          @"_name":@"name",
-                          @"_user":@"user",
-                          @"_userId":@"userId"
-                          };
+    TestModel *model = [TestModel initManagerWithDic:dicTest];
     
-    TestModel *model = [TestModel zj_initWithDictionary:dicTest optionalAttributesDic:dic];
-    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userId: %@ ",model._id, model._name, model.phone, model.address, @(model.age),model._user. _userId,model._user._userId);
+    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userName: %@ ",model._id, model._name, model.phone, model.address, @(model.age),model._user._userId,model._user._userName);
     [model.arrUsers enumerateObjectsUsingBlock:^(UserModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSLog(@"arrUser----userId:%@", obj._userId);
+    }];
+    
+    [model.arrUsers2 enumerateObjectsUsingBlock:^(UserModel2 *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"arrUser2----userName:%@ %@ %@", obj._userName,obj.userAge,obj.userId);
     }];
     
 }

@@ -15,7 +15,7 @@ static NSString *const ZJClassType_other   =   @"其它";
 
 @implementation NSObject (ZJDicModelTransform)
 
-/* 字典转模型 */
+#pragma mark - 字典转模型
 + (instancetype)zj_initWithDictionary:(NSDictionary *)dic  optionalAttributesDic:(NSDictionary<NSString *, NSString *> *)optionalAttributes{
     id myObj = [[self alloc]init];
     
@@ -130,6 +130,7 @@ static NSString *const ZJClassType_other   =   @"其它";
     return myObj;
 }
 
+#pragma mark - 处理数组
 + (instancetype)zj_initWithArray:(NSArray *)arr optionalAttributesDic:(NSDictionary<NSString *, NSString *> *)optionalAttributes{
     NSAssert([arr isKindOfClass:[NSArray class]], @"不是数组");
     
@@ -147,7 +148,7 @@ static NSString *const ZJClassType_other   =   @"其它";
     return arrmodels;
 }
 
-//获取属性的类型
+#pragma mark - 获取属性的类型
 - (NSDictionary *)propertyTypeFromProperty:(objc_property_t )property{
     NSString *propertyAttrs = @(property_getAttributes(property));
     
@@ -182,8 +183,6 @@ static NSString *const ZJClassType_other   =   @"其它";
     else {
         [dicPropertyType setObject:ZJClassType_other forKey:@"type"];
     }
-    
     return dicPropertyType;
 }
-
 @end

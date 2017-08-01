@@ -32,14 +32,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* 字典转模型 */
 + (instancetype)zj_initWithDictionary:(NSDictionary *)dic  optionalAttributesDic:(NSDictionary<NSString *, NSString *> *)optionalAttributes;
-
-/**
- *  @abstract 配置属性对应字典中的key
- *  @discusstion 如属性名为userID,对应字典中的key为user_id,则需通过此方法修改
- *
- *  @return NSDictionary<属性名, modelDictionary中的key> *
- */
-//@property (nonatomic, strong, nullable) NSDictionary<NSString *, NSString *> *optionalAttributes;
-
 @end
 NS_ASSUME_NONNULL_END

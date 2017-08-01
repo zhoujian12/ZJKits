@@ -11,26 +11,46 @@
 
 @implementation TestModel
 
-+ (NSDictionary *)zj_objectClassInArray{
-    return @{@"arrUsers":@"UserModel"};
++ (instancetype)initManagerWithDic:(NSDictionary *)dic{
+    // 属性名称替换方法一
+    NSDictionary *optionDic = @{@"_id":@"id",
+                                @"_name":@"name",
+                                @"_user":@"user",
+                                @"_userId":@"userId",
+                                @"_userName":@"userName"
+                                };
+    TestModel *model  = [TestModel zj_initWithDictionary:dic optionalAttributesDic:optionDic];
+    return model;
 }
 
-+(NSDictionary *)zj_propertykeyReplacedWithValue{
-    return @{@"_id":@"id",
-             @"_name":@"name",
-             @"_user":@"user",
-             @"_userId":@"userId"
-             };
+
++ (NSDictionary *)zj_objectClassInArray{
+    return @{@"arrUsers2":@"UserModel2", @"arrUsers":@"UserModel"};
 }
+
+// 属性名称替换方法二
+//+(NSDictionary *)zj_propertykeyReplacedWithValue{
+//    return @{@"_id":@"id",
+//             @"_name":@"name",
+//             @"_user":@"user",
+//             @"_userId":@"userId"
+//             };
+//}
 
 @end
 
 @implementation UserModel
 
-+(NSDictionary *)zj_propertykeyReplacedWithValue{
-    return @{
-             @"_userId":@"userId"
-             };
-}
+// 属性名称替换方法二
+//+(NSDictionary *)zj_propertykeyReplacedWithValue{
+//    return @{
+//             @"_userId":@"userId"
+//             };
+//}
+
+@end
+
+@implementation UserModel2
+
 
 @end
