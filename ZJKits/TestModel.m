@@ -17,7 +17,11 @@
                                 @"_name":@"name",
                                 @"_user":@"user",
                                 @"_userId":@"userId",
-                                @"_userName":@"userName"
+                                @"_userName":@"userName",
+                                @"arrUsers2":@"arr2",
+                                @"arrUsers":@"arr1",
+                                @"isShowView":@"is_show_view",
+                                @"viewHeight":@"view_height"
                                 };
     TestModel *model  = [TestModel zj_initWithDictionary:dic optionalAttributesDic:optionDic];
     return model;
@@ -28,29 +32,12 @@
     return @{@"arrUsers2":@"UserModel2", @"arrUsers":@"UserModel"};
 }
 
-// 属性名称替换方法二
-//+(NSDictionary *)zj_propertykeyReplacedWithValue{
-//    return @{@"_id":@"id",
-//             @"_name":@"name",
-//             @"_user":@"user",
-//             @"_userId":@"userId"
-//             };
-//}
-
 @end
 
 @implementation UserModel
 
-// 属性名称替换方法二
-//+(NSDictionary *)zj_propertykeyReplacedWithValue{
-//    return @{
-//             @"_userId":@"userId"
-//             };
-//}
-
 @end
 
 @implementation UserModel2
-
 
 @end

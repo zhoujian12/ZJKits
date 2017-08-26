@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserModel : NSObject
 
 @property (nonatomic, copy) NSString *_userName;
 @property (nonatomic, copy) NSString *_userId;
-
 
 @end
 
@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *_userName;
 @property (nonatomic, copy) NSString *userAge;
 @property (nonatomic, copy) NSString *userId;
+@property (nonatomic, assign) BOOL isShowView;
+@property (nonatomic, assign) CGFloat viewHeight;
 
 @end
 
@@ -32,6 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, assign) NSInteger age;
+@property (nonatomic, assign) BOOL isShowView;
+@property (nonatomic, assign) CGFloat viewHeight;
+@property (nonatomic, assign) NSTimeInterval  updateTime;
+
 
 @property (nonatomic, strong) UserModel *_user; ///< 模型中嵌套UserModel模型
 @property (nonatomic, strong) UserModel2 *_user2;
@@ -42,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
  dic 为需要解析的json字典
  */
 + (instancetype)initManagerWithDic:(NSDictionary *)dic;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

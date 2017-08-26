@@ -40,7 +40,8 @@
 
 
 - (void)htmlWithUrlString:(NSString *)urlString {
-    //http://blog.csdn.net/olive1993/article/details/52036755 [@"!*'();:@&=+ $,/?%#[]" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];  //编码
+    //http://blog.csdn.net/olive1993/article/details/52036755
+    [@"!*'();:@&=+ $,/?%#[]" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];  //编码
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -74,20 +75,28 @@
                               @"name":@"张三",
                               @"phone":@110,
                               @"age":@"10",
+                              @"is_show_view":@"1",
+                              @"view_height":@"123",
+                              @"updateTime":@111,
                               @"user":@{@"userId":@"2",@"userName":@"zhoujian"},
-                              @"arrUsers":@[@{@"userId":@"2"},@{@"userId":@"3"},@{@"userId":@"4"}],
-                              @"arrUsers2":@[@{@"userName":@"zhangSan"},@{@"userName":@"26"},@{@"userName":@"666"}]
+                              @"arr1":@[@{@"userId":@"2"},@{@"userId":@"3"},@{@"userId":@"4"}],
+                              @"arr2":@[@{@"userName":@"zhangSan",
+                                          @"is_show_view":@"1"},
+                                        @{@"userName":@"lisi"},@{@"userName":@"王五"}]
                               };
     
     TestModel *model = [TestModel initManagerWithDic:dicTest];
     
-    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userName: %@ ",model._id, model._name, model.phone, model.address, @(model.age),model._user._userId,model._user._userName);
+    NSLog(@"dicTest:%@ \n",dicTest);
+    
+    NSLog(@"model-----id:%@,  name:%@, phone:%@, address:%@, age:%@ , userId:%@, userName: %@ isShowView:%d view_height:%f updateTime:%f",model._id, model._name, model.phone, model.address, @(model.age),model._user._userId,model._user._userName,model.isShowView,model.viewHeight,model.updateTime);
+    
     [model.arrUsers enumerateObjectsUsingBlock:^(UserModel *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSLog(@"arrUser----userId:%@", obj._userId);
     }];
     
     [model.arrUsers2 enumerateObjectsUsingBlock:^(UserModel2 *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"arrUser2----userName:%@ %@ %@", obj._userName,obj.userAge,obj.userId);
+        NSLog(@"arrUser2----userName:%@ %@ %@ %d", obj._userName,obj.userAge,obj.userId,obj.isShowView);
     }];
     
 }
